@@ -21,8 +21,9 @@ public class AuthController {
     private final UserAuthenticationProvider userAuthenticationProvider;
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> login(CredentialsDTO credentialsDTO) {
+    public ResponseEntity<UserDTO> login(@RequestBody CredentialsDTO credentialsDTO) {
         UserDTO user = userService.login(credentialsDTO);
+        user.setToken(userAuthenticationProvider.createToken(user));
         return ResponseEntity.ok(user);
     }
     @PostMapping("/register")
