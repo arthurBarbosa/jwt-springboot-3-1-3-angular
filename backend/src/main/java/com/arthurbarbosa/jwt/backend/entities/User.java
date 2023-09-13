@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -33,4 +36,8 @@ public class User {
     @Column(nullable = false)
     @Size(max = 100)
     private String password;
+
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 }
