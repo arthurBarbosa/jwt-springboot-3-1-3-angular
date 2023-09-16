@@ -29,7 +29,7 @@ public class User {
     @Size(max = 100)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     @Size(max = 100)
     private String login;
 
