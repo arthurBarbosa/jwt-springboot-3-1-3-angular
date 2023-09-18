@@ -1,4 +1,6 @@
 INSERT INTO app_user (first_name,last_name,login,password) VALUES ('João','Oliveira','joao@user.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG')
+INSERT INTO app_user (first_name,last_name,login,password) VALUES ('Francisco','Oliveira','francisco@user.com','$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG')
+
 
 INSERT INTO category (name) VALUES ('Livros');
 INSERT INTO category (name) VALUES ('Eletrônicos');
@@ -57,3 +59,15 @@ INSERT INTO tb_product_category (product_id, category_id) VALUES (22, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (23, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (24, 3);
 INSERT INTO tb_product_category (product_id, category_id) VALUES (25, 3);
+
+INSERT INTO orders (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z', 1, 1);
+INSERT INTO orders (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z', 3, 2);
+INSERT INTO orders (moment, status, client_id) VALUES (TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z', 0, 1);
+
+INSERT INTO order_item (order_id, product_id, quantity, price) VALUES (1, 1, 2, 90.05);
+INSERT INTO order_item (order_id, product_id, quantity, price) VALUES (1, 3, 1, 1250.0);
+INSERT INTO order_item (order_id, product_id, quantity, price) VALUES (2, 3, 1, 1250.0);
+INSERT INTO order_item (order_id, product_id, quantity, price) VALUES (3, 1, 1, 90.05);
+
+INSERT INTO payment (order_id, moment) VALUES (1, TIMESTAMP WITH TIME ZONE '2022-07-25T13:00:00Z');
+INSERT INTO payment (order_id, moment) VALUES (2, TIMESTAMP WITH TIME ZONE '2022-07-30T13:00:00Z');
