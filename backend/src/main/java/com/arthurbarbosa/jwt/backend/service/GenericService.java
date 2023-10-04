@@ -38,4 +38,12 @@ public abstract class GenericService<E, D extends GenericDTO, R extends JpaRepos
         return copyEntityToDto(entitySave);
     }
 
+
+    @Transactional
+    public D update(Long id, D dto) {
+        E product = repository.findById(id).orElseThrow(() -> new AppException("Entity Not found", HttpStatus.NOT_FOUND));
+        product = copyDtoToEntity(dto);
+        E save = repository.save(product);
+        return copyEntityToDto(save);
+    }
 }
